@@ -1,10 +1,10 @@
-name: Build Android Release APK
+name: Build Debug-Signed Release APK
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:    # Manual trigger
   push:
     branches:
-      - main
+      - main           # Also runs on pushes to main
 
 jobs:
   build:
@@ -29,5 +29,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-release
+          name: app-release-debug
           path: app/build/outputs/apk/release/app-release.apk
