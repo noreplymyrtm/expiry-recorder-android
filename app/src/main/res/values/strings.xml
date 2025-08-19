@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Store Scanner</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="add_scan">Add Scan</string>
+    <string name="save_csv">Save CSV</string>
+    <string name="share_csv">Share CSV</string>
+    <string name="status_idle">Status: idle</string>
+</resources>
