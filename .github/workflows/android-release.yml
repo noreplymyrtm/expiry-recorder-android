@@ -1,10 +1,10 @@
 name: Build Debug APK
 
 on:
-  workflow_dispatch:    # Manual trigger
+  workflow_dispatch:
   push:
     branches:
-      - main           # Also runs on pushes to main
+      - main
 
 jobs:
   build:
@@ -19,6 +19,11 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
+
+      - name: Install Android SDK and accept licenses
+        run: |
+          echo "y" | sdkmanager --install "platforms;android-34" "build-tools;34.0.0-rc3"
+          yes | sdkmanager --licenses
 
       - name: Make Gradle wrapper executable
         run: chmod +x ./gradlew
