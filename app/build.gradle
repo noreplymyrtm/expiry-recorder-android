@@ -9,8 +9,11 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
             signingConfig signingConfigs.debug
+        }
+        release {
+            // leave empty for now
             minifyEnabled false
         }
     }
