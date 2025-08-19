@@ -1,10 +1,10 @@
 name: Build Android Release APK
 
 on:
-  workflow_dispatch:   # Manual trigger
+  workflow_dispatch:
   push:
     branches:
-      - main           # also trigger on main branch push
+      - main
 
 jobs:
   build:
@@ -20,11 +20,11 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v3
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
 
       - name: Build Release APK
-        run: ./gradlew assembleRelease
+        run: ./gradlew assembleRelease --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
